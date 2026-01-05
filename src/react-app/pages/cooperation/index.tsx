@@ -18,10 +18,14 @@ interface FormData {
   estimatedMonthlySales: string;
   businessDescription: string;
 }
+const SUBMIT_ENDPOINT = {
+  'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65',
+  'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65'
+};
 
 export default function Cooperation() {
   const { t } = useLanguage();
-  
+
   // 初始化表单
   const form = useForm<FormData>({
     defaultValues: {
@@ -34,7 +38,7 @@ export default function Cooperation() {
       businessDescription: ''
     }
   });
-  
+
   // 表单提交处理函数
   const handleSubmit = async (data: FormData) => {
     try {
@@ -45,19 +49,19 @@ export default function Cooperation() {
           text: JSON.stringify(data, null, 2)
         }
       };
-      
+
       // 发送请求
-      const response = await fetch('https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65', {
+      const response = await fetch(SUBMIT_ENDPOINT.DEV, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(submitData)
       });
-      
+
       // 解析响应
       const result = await response.json();
-      
+
       // 检查响应状态
       if (result.StatusCode === 0 && result.code === 0) {
         // 提交成功
@@ -152,10 +156,10 @@ export default function Cooperation() {
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="text-gray-950/70 text-sm md:text-base font-light leading-6">
-                        {t('businessEmail')}Business@starbit.net.cn
+                        {t('businessEmail')}payoffice@starbit.net.cn
                       </p>
                       <p className="text-gray-950/70 text-sm md:text-base font-light leading-6">
-                        {t('supportEmail')}Support@starbit.net.cn
+                        {t('supportEmail')}support@starbit.net.cn
                       </p>
                     </div>
                   </div>
@@ -167,7 +171,7 @@ export default function Cooperation() {
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="text-gray-950/70 text-sm md:text-base font-light leading-6">
-                        {t('officialOrganization')}@starbit_Globle
+                        {t('officialOrganization')}@starbit_Global
                       </p>
                       <p className="text-gray-950/70 text-sm md:text-base font-light leading-6">
                         {t('247Support')}
