@@ -42,6 +42,17 @@ export default function Cooperation() {
     }
   });
 
+  // 表单验证规则
+  const validateRequired = (value: string) => {
+    return value.trim() !== '' || t('required');
+  };
+
+  const validateEmail = (value: string) => {
+    if (!value.trim()) return t('required');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value) || t('invalidEmail');
+  };
+
   // 表单提交处理函数
   const handleSubmit = async (data: FormData) => {
     try {
@@ -215,28 +226,58 @@ export default function Cooperation() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Left Column */}
                   <div className="flex flex-col gap-8">
-                    <FormField label={t('name')} placeholder={t('enterName')} type="text" name="name" form={form} />
+                    <FormField 
+                      label={t('name')} 
+                      placeholder={t('enterName')} 
+                      type="text" 
+                      name="name" 
+                      form={form} 
+                      rules={{ validate: validateRequired }}
+                    />
                     <FormField
                       label={t('email')}
                       placeholder={t('enterEmail')}
                       type="email"
                       name="email"
                       form={form}
+                      rules={{ validate: validateEmail }}
                     />
-                    <FormField label={t('industry')} placeholder={t('enterIndustry')} type="text" name="industry" form={form} />
+                    <FormField 
+                      label={t('industry')} 
+                      placeholder={t('enterIndustry')} 
+                      type="text" 
+                      name="industry" 
+                      form={form} 
+                      rules={{ validate: validateRequired }}
+                    />
                   </div>
 
                   {/* Right Column */}
                   <div className="flex flex-col gap-8">
-                    <FormField label={t('companyName')} placeholder={t('enterCompanyName')} type="text" name="companyName" form={form} />
+                    <FormField 
+                      label={t('companyName')} 
+                      placeholder={t('enterCompanyName')} 
+                      type="text" 
+                      name="companyName" 
+                      form={form} 
+                      rules={{ validate: validateRequired }}
+                    />
                     <FormField
                       label={t('phone')}
                       placeholder={t('enterPhone')}
                       type="tel"
                       name="phone"
                       form={form}
+                      rules={{ validate: validateRequired }}
                     />
-                    <FormField label={t('estimatedMonthlySales')} placeholder={t('enterMonthlySales')} type="text" name="estimatedMonthlySales" form={form} />
+                    <FormField 
+                      label={t('estimatedMonthlySales')} 
+                      placeholder={t('enterMonthlySales')} 
+                      type="text" 
+                      name="estimatedMonthlySales" 
+                      form={form} 
+                      rules={{ validate: validateRequired }}
+                    />
                   </div>
                 </div>
 
@@ -246,7 +287,7 @@ export default function Cooperation() {
                     {t('businessDescription')}
                   </label>
                   <textarea
-                    {...form.register('businessDescription')}
+                    {...form.register('businessDescription', { validate: validateRequired })}
                     className={`w-full h-24 p-3 rounded-md border bg-white text-gray-950 text-base font-light leading-6 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none ${form.formState.errors.businessDescription ? 'border-red-500' : 'border-gray-200'}`}
                     placeholder={t('enterBusinessDescription')}
                   />

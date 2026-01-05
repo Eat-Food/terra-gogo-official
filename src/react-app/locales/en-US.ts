@@ -17,6 +17,7 @@ export const enUS = {
   required: 'This field is required',
   error: 'An error occurred, please try again',
   success: 'Operation successful',
+  invalidEmail: 'Please enter a valid email address',
   
   // Hero Section
   heroTitle: 'Global Leading Cross-border Stablecoin Payment Service Provider',

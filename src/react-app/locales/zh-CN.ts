@@ -17,6 +17,7 @@ export const zhCN = {
   required: '此项为必填项',
   error: '发生错误，请重试',
   success: '操作成功',
+  invalidEmail: '请输入有效的邮箱地址',
   
   // Hero Section
   heroTitle: '全球领先的跨境稳定币支付服务商',
