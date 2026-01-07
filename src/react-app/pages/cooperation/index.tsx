@@ -22,7 +22,7 @@ interface FormData {
 const SUBMIT_ENDPOINT = {
   'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/11b2b7f3-9a09-43d4-8102-973f41a57114',
   'SECRET': 'Vj8sk8AEpLCfCgESXUXTkb',
-  // 'SECRET': 'CFNFRSG8Lm4mBvraMnJk0g',
+  // 'SECRET': 'rfxGQpTpTfTmXBI6P45Lbe',
   'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65'
 };
 
@@ -227,12 +227,19 @@ export default function Cooperation() {
                 {/* Two Column Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Left Column */}
-                  <div className="flex flex-col gap-8">
                     <FormField 
                       label={t('name')} 
                       placeholder={t('enterName')} 
                       type="text" 
                       name="name" 
+                      form={form} 
+                      rules={{ validate: validateRequired }}
+                    />
+                    <FormField 
+                      label={t('companyName')} 
+                      placeholder={t('enterCompanyName')} 
+                      type="text" 
+                      name="companyName" 
                       form={form} 
                       rules={{ validate: validateRequired }}
                     />
@@ -244,32 +251,20 @@ export default function Cooperation() {
                       form={form}
                       rules={{ validate: validateEmail }}
                     />
-                    <FormField 
-                      label={t('industry')} 
-                      placeholder={t('enterIndustry')} 
-                      type="text" 
-                      name="industry" 
-                      form={form} 
-                      rules={{ validate: validateRequired }}
-                    />
-                  </div>
-
-                  {/* Right Column */}
-                  <div className="flex flex-col gap-8">
-                    <FormField 
-                      label={t('companyName')} 
-                      placeholder={t('enterCompanyName')} 
-                      type="text" 
-                      name="companyName" 
-                      form={form} 
-                      rules={{ validate: validateRequired }}
-                    />
                     <FormField
                       label={t('phone')}
                       placeholder={t('enterPhone')}
                       type="tel"
                       name="phone"
                       form={form}
+                      rules={{ validate: validateRequired }}
+                    />
+                    <FormField 
+                      label={t('industry')} 
+                      placeholder={t('enterIndustry')} 
+                      type="text" 
+                      name="industry" 
+                      form={form} 
                       rules={{ validate: validateRequired }}
                     />
                     <FormField 
@@ -280,7 +275,6 @@ export default function Cooperation() {
                       form={form} 
                       rules={{ validate: validateRequired }}
                     />
-                  </div>
                 </div>
 
                 {/* Full Width Field */}
