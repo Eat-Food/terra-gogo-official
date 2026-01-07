@@ -57,12 +57,14 @@ export default function Cooperation() {
   const handleSubmit = async (data: FormData) => {
     try {
       // 构建提交的数据
+      const timestamp = (Date.now()/1000 >> 0).toString();
       const submitData = {
         msg_type: "text",
         content: {
           text: JSON.stringify(data, null, 2)
         },
-        sign: genSign(Date.now().toString(), SUBMIT_ENDPOINT.SECRET)
+        timestamp,
+        sign: genSign(timestamp, SUBMIT_ENDPOINT.SECRET)
       };
 
       // 发送请求
