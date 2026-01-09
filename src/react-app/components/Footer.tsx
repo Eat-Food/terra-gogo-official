@@ -1,3 +1,4 @@
+import { FooterBg } from "@/assets/imgs";
 import { useLanguage } from "@/locales/LanguageContext";
 import { Link } from "react-router-dom";
 
@@ -8,12 +9,11 @@ export default function Footer() {
     <footer className="w-full">
       {/* CTA Section */}
       <div className="bg-gray-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/f4218c37bce4d13e67ea84546fb539b500868111?width=640"
-            alt=""
-            className="w-full h-full object-cover rotate-90"
-          />
+        <div
+          className="absolute inset-0 opacity-20 bg-no-repeat bg-right-top bg-cover"
+          style={{ backgroundImage: `url(${FooterBg})` }}
+        >
+
         </div>
         <div className="relative max-w-[1200px] mx-auto py-12 md:py-[72px]">
           <div className="flex flex-col items-center gap-10">

@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { Lightbulb, Sun, Gem, Heart, Star, MapPin } from "lucide-react";
-import { AboutFuture, Banner2 } from "@/assets/imgs";
+import { AboutCover, AboutFuture, AboutMap, Banner2 } from "@/assets/imgs";
 import { useLanguage } from "@/locales/LanguageContext";
 
 export default function About() {
@@ -50,7 +50,7 @@ export default function About() {
               <div className="w-full h-full min-h-[320px] lg:h-[488px]  overflow-hidden relative">
                 <div className="absolute inset-0 bg-blue-50 -z-10" />
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/e00c23c32eac391f1ed0bdde76eb7a69cf6228e6?width=1424"
+                  src={AboutCover}
                   alt="Terrapay Building"
                   className="w-full h-full rounded-2xl object-cover relative"
                 />
@@ -177,7 +177,7 @@ export default function About() {
               </div>
               <div className="w-full lg:w-[489px] flex-shrink-0">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/3bb26fcad30ca80a5bffcce8246bdfff7260eeab?width=978"
+                  src={AboutMap}
                   alt="Global map"
                   className="w-full h-auto"
                 />

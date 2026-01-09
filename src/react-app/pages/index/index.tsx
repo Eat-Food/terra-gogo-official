@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
 import FloatingActions from "@/components/FloatingActions";
-import { Banner1, IndexGlobal, IndexSecurity, IndexSpeed } from "@/assets/imgs";
+import { Banner1, IndexCalc, IndexGlobal, IndexSaler, IndexSecurity, IndexSpeed } from "@/assets/imgs";
 import { SecurityCard } from "@/components/SecurityCard";
 import { SecurityIcon, SpeedIcon, GlobeIcon, ProductCard, CaseStudyCard, AdvantageCard, StoryCard, PartnerLogo } from "./components";
 import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRightFill, IconArrowUp, IconBolt, IconEarth, IconEco, IconEye, IconGame, IconMCN, IconStore, IconWallet, MonitorIcon, SeparationIcon, SignatureIcon } from "./components/Icons";
@@ -310,13 +310,13 @@ export default function Index() {
               title={t('settlementSystem')}
               subtitle={t('settlementSystemSubtitle')}
               description={t('settlementSystemDesc')}
-              image="https://api.builder.io/api/v1/image/assets/TEMP/836953281438188a25624a27b07a3f008e0c8fe3?width=1176"
+              image={IndexCalc}
             />
             <ProductCard
               title={t('aiAgentPayment')}
               subtitle={t('aiAgentPaymentSubtitle')}
               description={t('aiAgentPaymentDesc')}
-              image="https://api.builder.io/api/v1/image/assets/TEMP/c5a97c8640d7ff366d905e7a5c4005143dd44799?width=1064"
+              image={IndexCalc}
             />
           </div>
         </section>
@@ -462,7 +462,7 @@ export default function Index() {
           <div className="w-full flex items-center gap-6">
             <div className="flex-1 relative h-[343px] rounded-2xl overflow-hidden bg-gray-50">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/f4228b9c36b4b43a3962d2d6ba2e32f5464c19ed?width=1648"
+                src={IndexSaler}
                 alt="Merchant story"
                 className="absolute inset-0 w-full h-full object-cover"
               />
