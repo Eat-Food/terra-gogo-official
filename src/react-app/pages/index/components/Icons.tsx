@@ -291,3 +291,10 @@ export function IconArrowRightFill({ className }: { className?: string }) {
   )
 }
 
+export function IconArrowRight({ className }: { className?: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.793 7.79289C15.1835 7.40237 15.8165 7.40237 16.207 7.79289L19.707 11.2929C19.993 11.5789 20.0786 12.0091 19.9238 12.3827C19.769 12.7563 19.4044 12.9999 19 12.9999H5C4.44772 12.9999 4 12.5522 4 11.9999C4 11.4476 4.44772 10.9999 5 10.9999H16.5859L14.793 9.20696C14.4024 8.81643 14.4024 8.18342 14.793 7.79289Z" fill="white" />
+    </svg>
+  )
+}

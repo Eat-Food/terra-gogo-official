@@ -7,9 +7,10 @@ import FloatingActions from "@/components/FloatingActions";
 import { Banner1, IndexCalc, IndexGlobal, IndexSaler, IndexSecurity, IndexSpeed } from "@/assets/imgs";
 import { SecurityCard } from "@/components/SecurityCard";
 import { SecurityIcon, SpeedIcon, GlobeIcon, ProductCard, CaseStudyCard, AdvantageCard, StoryCard, PartnerLogo } from "./components";
-import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRightFill, IconArrowUp, IconBolt, IconEarth, IconEco, IconEye, IconGame, IconMCN, IconStore, IconWallet, MonitorIcon, SeparationIcon, SignatureIcon } from "./components/Icons";
+import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRight, IconArrowRightFill, IconArrowUp, IconBolt, IconEarth, IconEco, IconEye, IconGame, IconMCN, IconStore, IconWallet, MonitorIcon, SeparationIcon, SignatureIcon } from "./components/Icons";
 import { useLanguage } from "@/locales/LanguageContext";
 import { Partner } from "./components/Partner";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
@@ -142,11 +143,15 @@ export default function Index() {
                   {t('heroSubtitle')}
                 </p>
               </div>
-              <button className="flex items-center justify-center gap-2 md:gap-3 px-5 md:px-6 h-12 md:h-14 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors">
-                <span className="text-white text-base md:text-xl font-medium leading-[30px]">
-                  {t('more')}
-                </span>
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <button
+                className=" rounded-full bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                <Link className="text-white flex items-center justify-center gap-2 md:gap-3  px-8 md:px-16 h-12 md:h-14" to="/cooperation">
+                  <span className="text-white text-base md:text-xl font-medium leading-[30px]">
+                    {t('more')}
+                  </span>
+                  <IconArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </Link>
               </button>
             </div>
           </div>
@@ -337,28 +342,28 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="w-full relative"> 
+            <div className="w-full relative">
               <div className=" flex overflow-hidden">
                 <div
-                className="flex gap-6 transition-transform duration-500 ease-out"
-                style={{
-                  // 使用calculateSlideDistance函数计算滑动距离，确保最后一个卡片的右边不会离开右侧
-                  transform: `translateX(-${calculateSlideDistance(currentSlide)}px)`
-                }}
-              >
-                {cards.map((card, index) => (
-                  <CaseStudyCard
-                    key={index}
-                    icon={card.icon}
-                    title={card.title}
-                    description={card.description}
-                    metric1={card.metric1}
-                    metric1Label={card.metric1Label}
-                    metric2={card.metric2}
-                    metric2Label={card.metric2Label}
-                  />
-                ))}
-              </div>
+                  className="flex gap-6 transition-transform duration-500 ease-out"
+                  style={{
+                    // 使用calculateSlideDistance函数计算滑动距离，确保最后一个卡片的右边不会离开右侧
+                    transform: `translateX(-${calculateSlideDistance(currentSlide)}px)`
+                  }}
+                >
+                  {cards.map((card, index) => (
+                    <CaseStudyCard
+                      key={index}
+                      icon={card.icon}
+                      title={card.title}
+                      description={card.description}
+                      metric1={card.metric1}
+                      metric1Label={card.metric1Label}
+                      metric2={card.metric2}
+                      metric2Label={card.metric2Label}
+                    />
+                  ))}
+                </div>
               </div>
               <div className="arrow-container absolute top-1/2 -translate-y-1/2 flex items-center justify-between left-1 lg:left-[-50px] right-1 lg:right-[-50px]">
                 {currentSlide !== 0 ? (
@@ -366,13 +371,13 @@ export default function Index() {
                     className="cursor-pointer text-black/50 hover:text-[#2563eb]"
                     onClick={() => setCurrentSlide((prev) => (prev === 0 ? cards.length - 1 : prev - 1))}
                   ><IconArrowLeftFill /></span>
-                ) : <span/>}
+                ) : <span />}
                 {currentSlide !== cards.length - 1 ? (
                   <span
                     className="cursor-pointer text-black/50 hover:text-[#2563eb]"
                     onClick={() => setCurrentSlide((prev) => (prev === cards.length - 1 ? 0 : prev + 1))}
                   ><IconArrowRightFill /></span>
-                ): <span/>}
+                ) : <span />}
               </div>
             </div>
 
