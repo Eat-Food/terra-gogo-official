@@ -36,8 +36,8 @@ export const esES = {
   paymentMethods: 'Métodos de pago',
   uptime: 'Tiempo de funcionamiento del sistema',
   
-  // Why Choose Terrazip
-  whyChoose: '「 ¿Por qué elegir Terrazip? 」',
+  // Why Choose Terrapay
+  whyChoose: '「 ¿Por qué elegir Terrapay? 」',
   whyChooseSubtitle: 'Soluciones de pago con stablecoins basadas en blockchain que ofrecen servicios de pago seguros, rápidos y de bajo costo para comerciantes de todo el mundo.',
   security: 'Seguridad y cumplimiento',
   securityTitle: 'Cumple con estándares de seguridad bancarios compuestos y sigue regulaciones financieras globales para garantizar la seguridad de los fondos',

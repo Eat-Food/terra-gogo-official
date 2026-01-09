@@ -228,7 +228,7 @@ export default function Index() {
             {/* Why Choose Content */}
             <div className="w-full bg-gray-50 flex items-center">
               <div className="w-full max-w-[1200px] m-auto flex flex-col lg:flex-row gap-6 lg:gap-12">
-                <div className="flex-1 min-w-0 flex flex-col items-start gap-6 md:gap-8 h-[440px] p-6 md:p-10 lg:p-14">
+                <div className="flex-1 min-w-0 flex flex-col items-start gap-6 md:gap-8 min-h-[440px] p-6 md:p-10 lg:p-14">
                   <h3 className="text-gray-950 h-[70px] text-xl md:text-2xl font-medium leading-relaxed md:leading-9">
                     {tabContents[activeTab].description}
                   </h3>
@@ -251,7 +251,7 @@ export default function Index() {
                 </div>
                 <div className="relative">
                   <div className="inset-0 flex items-center justify-center">
-                    <img className="lg:h-[440px]" src={tabContents[activeTab].img} alt="Security" />
+                    <img className="h-full lg:min-h-[440px]" src={tabContents[activeTab].img} alt="Security" />
                   </div>
                 </div>
               </div>

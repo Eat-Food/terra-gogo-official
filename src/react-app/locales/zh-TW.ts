@@ -36,8 +36,8 @@ export const zhTW = {
   paymentMethods: '支付方式',
   uptime: '系統運行時間',
   
-  // Why Choose Terrazip
-  whyChoose: '「 為什麼選擇Terrazip？」',
+  // Why Choose Terrapay
+  whyChoose: '「 為什麼選擇Terrapay？」',
   whyChooseSubtitle: '基於區塊鏈的穩定幣支付解決方案為全球商家提供安全、快速且成本低廉的支付服務。',
   security: '安全與合規性',
   securityTitle: '複合銀行級安全標準，遵循全球金融法規，保障資金安全',
