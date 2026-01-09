@@ -13,6 +13,7 @@ import { Partner } from "./components/Partner";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
 
   const tabContents = {
@@ -260,7 +261,10 @@ export default function Index() {
             </div>
 
             <div className="w-full flex overflow-hidden">
-              <div className="flex gap-6">
+              <div 
+                className="flex gap-6 transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentSlide * (350 + 24)}px)` }}
+              >
                 <CaseStudyCard
                   icon={<IconMCN />}
                   title={t('mcnAgency')}
@@ -300,11 +304,16 @@ export default function Index() {
               </div>
             </div>
 
+            {/* Carousel control */}
             <div className="flex items-center gap-2">
-              <div className="w-8 h-4 rounded-full bg-gray-400" />
-              <div className="w-4 h-4 rounded-full bg-gray-200" />
-              <div className="w-4 h-4 rounded-full bg-gray-200" />
-              <div className="w-4 h-4 rounded-full bg-gray-200" />
+              {[0, 1, 2, 3].map((index) => (
+                <button
+                  key={index}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-8 bg-gray-400' : 'bg-gray-200'}`}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </section>
