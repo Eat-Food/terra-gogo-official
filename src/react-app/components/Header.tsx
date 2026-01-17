@@ -60,7 +60,7 @@ export default function Header() {
           <IconLogo />
         </div>
         <div className="flex items-center gap-2">
-          <nav className="flex items-start gap-4 md:gap-6 lg:gap-10">
+          <nav className="hidden sm:flex items-start gap-4 md:gap-6 lg:gap-10">
           <Link
             to="/"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/") ? "text-white" : "text-white/70 hover:text-white"}`}
