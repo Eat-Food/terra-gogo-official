@@ -30,7 +30,6 @@ export default function CaseStudyCard({
           <ClampedContentWithTooltip
             content={description}
             className="text-gray-400 text-base font-light h-[70px] leading-6 line-clamp-3 text-center"
-            rows={3}
           />
         </div>
         <div className="h-px w-full bg-gray-200" />

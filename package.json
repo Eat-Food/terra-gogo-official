@@ -111,9 +111,8 @@
 		"dev": "vite",
 		"format.fix": "prettier --write .",
 		"lint": "eslint .",
-		"preview": "npm run build && vite preview",
+		"preview": "pnpm run build && vite preview",
 		"typecheck": "tsc"
 	},
-	"type": "module",
-	"packageManager": "npm@10.8.1"
+	"type": "module"
 }
