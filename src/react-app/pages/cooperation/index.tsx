@@ -21,9 +21,9 @@ interface FormData {
 }
 const SUBMIT_ENDPOINT = {
   'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/11b2b7f3-9a09-43d4-8102-973f41a57114',
-  'SECRET': 'Vj8sk8AEpLCfCgESXUXTkb',
+  'SECRET': 'crjId6qIdRhtt2cT8R6oid',
   // 'SECRET': 'rfxGQpTpTfTmXBI6P45Lbe',
-  'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65'
+  'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/91011902-6db9-4ca7-8aa6-b1a42513f1dc'
 };
 
 export default function Cooperation() {
@@ -58,10 +58,17 @@ export default function Cooperation() {
     try {
       // 构建提交的数据
       const timestamp = (Date.now()/1000 >> 0).toString();
+      
       const submitData = {
         msg_type: "text",
         content: {
-          text: JSON.stringify(data, null, 2)
+          text: `姓名：${data.name}
+公司名称：${data.companyName}
+邮箱：${data.email}
+行业：${data.industry}
+联系电话：${data.phone}
+预计月均销售额：${data.estimatedMonthlySales}
+业务描述：${data.businessDescription}`
         },
         timestamp,
         sign: genSign(timestamp, SUBMIT_ENDPOINT.SECRET)
