@@ -11,6 +11,7 @@ import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRight, IconA
 import { useLanguage } from "@/locales/LanguageContext";
 import { Partner } from "./components/Partner";
 import { Link } from "react-router-dom";
+import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
@@ -235,7 +236,7 @@ export default function Index() {
               <div className="w-full max-w-[1200px] m-auto flex flex-col lg:flex-row gap-6 lg:gap-12">
                 <div className="flex-1 min-w-0 flex flex-col items-start gap-6 md:gap-8 min-h-[440px] p-6 md:p-10 lg:p-14">
                   <h3 className="text-gray-950 h-[70px] text-xl md:text-2xl font-medium leading-relaxed md:leading-9">
-                    {tabContents[activeTab].description}
+                    <ClampedContentWithTooltip content={tabContents[activeTab].description} />
                   </h3>
                   <div className="flex flex-1 flex-col items-start gap-2.5">
                     {tabContents[activeTab].points.map((point, index) => (
@@ -365,25 +366,25 @@ export default function Index() {
                   ))}
                 </div>
               </div>
-              <div className="arrow-container absolute top-1/2 -translate-y-1/2 flex items-center justify-between left-1 lg:left-[-50px] right-1 lg:right-[-50px]">
-                {currentSlide !== 0 ? (
+              <div className="arrow-container">
+                {currentSlide !== 0 && (<div className=" absolute top-1/2 -translate-y-1/2 left-1 lg:left-[-50px]">
                   <span
                     className="cursor-pointer text-black/50 hover:text-[#2563eb]"
                     onClick={() => setCurrentSlide((prev) => (prev === 0 ? cards.length - 1 : prev - 1))}
                   ><IconArrowLeftFill /></span>
-                ) : <span />}
-                {currentSlide !== cards.length - 1 ? (
+                </div>)}
+                {currentSlide == 0 && (<div className=" absolute top-1/2 -translate-y-1/2 lg:right-[-50px]">
                   <span
                     className="cursor-pointer text-black/50 hover:text-[#2563eb]"
                     onClick={() => setCurrentSlide((prev) => (prev === cards.length - 1 ? 0 : prev + 1))}
                   ><IconArrowRightFill /></span>
-                ) : <span />}
+                </div>)}
               </div>
             </div>
 
             {/* Carousel control */}
             <div className="flex items-center gap-2">
-              {cards.map((_, index) => (
+              {[1, 2].map((_, index) => (
                 <button
                   key={index}
                   className={`w-4 h-4 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-8 bg-gray-400' : 'bg-gray-200'}`}
@@ -484,8 +485,8 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <StoryCard title={t('story1')} />
-            <StoryCard title={t('story2')} />
+            {/* <StoryCard title={t('story1')} />
+            <StoryCard title={t('story2')} /> */}
           </div>
         </section>
 

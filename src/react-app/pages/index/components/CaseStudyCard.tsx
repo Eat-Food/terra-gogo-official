@@ -1,3 +1,5 @@
+import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
+
 export default function CaseStudyCard({
   icon,
   title,
@@ -25,9 +27,11 @@ export default function CaseStudyCard({
           <h3 className="text-gray-950 text-nowrap text-2xl font-medium leading-9 text-center w-full">
             {title}
           </h3>
-          <p className="text-gray-400 text-base font-light h-[70px] leading-6 line-clamp-3 text-center">
-            {description}
-          </p>
+          <ClampedContentWithTooltip
+            content={description}
+            className="text-gray-400 text-base font-light h-[70px] leading-6 line-clamp-3 text-center"
+            rows={3}
+          />
         </div>
         <div className="h-px w-full bg-gray-200" />
         <div className="grid grid-cols-2 gap-4 w-full">
