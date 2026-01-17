@@ -14,7 +14,7 @@ export default function AdvantageCard({
       <div className="flex items-center justify-center w-[69px] h-[54px] px-4 rounded-lg bg-blue-600">
         <span>{icon}</span>
       </div>
-      <div className="flex flex-col items-start gap-2 w-full">
+      <div className="flex flex-col items-start gap-2 w-full text-left">
         <h3 className="text-gray-950 text-2xl font-medium leading-9">
           {title}
         </h3>
@@ -26,10 +26,10 @@ export default function AdvantageCard({
       <div className="flex flex-col items-start gap-3 w-full">
         {comparison.map((item, index) => (
           <div key={index} className="flex items-start justify-between w-full">
-            <span className="text-gray-400 text-base font-light leading-6 text-center">
+            <span className="text-gray-400 text-base font-light leading-6 text-left">
               {item.label}
             </span>
-            <span className="text-gray-950 text-base font-light leading-6 text-center">
+            <span className="text-gray-950 text-base font-light leading-6 text-right">
               {item.value}
             </span>
           </div>
